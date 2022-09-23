@@ -13,13 +13,10 @@
   <div id="app">
     <header>
         <h1>VUE-DISCHI</h1>
-        <label for="genere">Choose a genre</label>
-         <select id="genere">
+        <label for="genere">--Choose a genre--</label>
+         <select @change="fetchDischi" v-model="selectedGenrs" id="genere">
            <option value="">All</option>
-           <option value="rock">Rock</option>
-           <option value="pop">Pop</option>
-           <option value="metal">Metal</option>
-           <option value="jazz">Jazz</option>
+           <option v-for="genr in genrs" :value="genr">{{genr}}</option>
         </select>
     </header>
     <main class="container grid">
