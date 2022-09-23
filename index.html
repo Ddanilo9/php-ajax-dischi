@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
+  <div id="app">
+    <header>
+        <h1>VUE-DISCHI</h1>
+        <label for="genere">Choose a genre</label>
+         <select id="genere">
+           <option value="">All</option>
+           <option value="rock">Rock</option>
+           <option value="pop">Pop</option>
+           <option value="metal">Metal</option>
+           <option value="jazz">Jazz</option>
+        </select>
+    </header>
+    <main>
+        <div v-if="dischi.lenght" class="container grid">
+            <div v-for="(disco) in dischi" class="card">
+                <div class="info-card">
+                    <img :src="disco.poster" alt="">
+                    <h3>{{disco.title}}</h3>
+                    <span>{{disco.author}}</span>
+                    <span>{{disco.year}}</span>
+                </div>
+            </div>
+        </div>
+        <div v-else>
+            niente
+        </div>
+    </main>
+  </div>  
+
+  
+<script src="./app.js"></script>
+
 </body>
 </html>
